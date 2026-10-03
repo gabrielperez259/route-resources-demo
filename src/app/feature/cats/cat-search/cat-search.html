@@ -1,0 +1,10 @@
+<div class="cat-search-container">
+  <header class="header">
+    <h1>Cat Says</h1>
+    <p>Generate a cat image with your own message.</p>
+  </header>
+
+  <app-cat-tags (tagSelected)="onTagSelected($event)" />
+
+  <app-cat-text (searchSubmitted)="onSearch($event)" />
+</div>

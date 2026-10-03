@@ -1,0 +1,121 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 1.5rem;
+  background-color: #f9fafb;
+}
+
+.container {
+  width: 100%;
+  max-width: 520px;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow:
+    0 10px 25px -5px rgba(0, 0, 0, 0.05),
+    0 8px 10px -6px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  text-align: center;
+
+  .header {
+    width: 100%;
+
+    p {
+      font-size: 0.95rem;
+      color: #6b7280;
+      margin: 0;
+
+      // Garante que textos longos sem espaço quebrem linha e não vazem a tela
+      overflow-wrap: break-word;
+      word-break: break-word;
+    }
+  }
+
+  .result {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f3f4f6;
+    border-radius: 12px;
+    overflow: hidden;
+    min-height: 250px; // Garante uma área visível enquanto carrega
+
+    img {
+      width: 100%;
+      height: auto; // Mantém a proporção real sem achatar ou cortar
+      max-height: 70vh; // Evita que imagens extremamente altas estourem a tela
+      object-fit: contain;
+      display: block;
+      border-radius: 12px;
+    }
+  }
+
+  .loading,
+  .error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 2rem;
+
+    p {
+      margin: 0;
+      font-size: 0.95rem;
+    }
+  }
+
+  .loading {
+    color: #4b5563;
+
+    .spinner {
+      width: 2rem;
+      height: 2rem;
+      border: 3px solid #cbd5e1;
+      border-top-color: #3b82f6;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+  }
+
+  .error {
+    color: #991b1b;
+    p {
+      font-weight: 500;
+    }
+  }
+}
+
+.back-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #3b82f6;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: #2563eb;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

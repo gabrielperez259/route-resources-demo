@@ -1,0 +1,38 @@
+<main class="container">
+  <section class="card">
+
+    <header class="header">
+      <h1>Cat Says</h1>
+      <p>Your cat is saying: "{{ text() }}"</p>
+    </header>
+
+    <section class="result">
+
+      @if (catImage().isLoading()) {
+        <div class="loading">
+          <span class="spinner"></span>
+          <p>Generating your cat...</p>
+        </div>
+      }
+
+      @else if (catImage().error()) {
+        <div class="error">
+          <p>Something went wrong while generating your cat.</p>
+        </div>
+      }
+
+      @else if (catImage().hasValue()) {
+        <img
+          [src]="catImage().value()"
+          [alt]="'Cat saying ' + text()"
+        />
+      }
+
+    </section>
+
+    <a routerLink="/cats" class="back-button">
+      Generate another cat
+    </a>
+
+  </section>
+</main>

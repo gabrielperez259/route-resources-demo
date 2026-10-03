@@ -1,0 +1,29 @@
+<div class="cat-tags-container">
+  <label for="cat-tag-select" class="cat-tags-label">Select a Tag:</label>
+
+  @if (tags.isLoading()) {
+    <div class="status-message loading">
+      <span class="spinner"></span>
+      Loading...
+    </div>
+  } @else if (tags.error()) {
+    <div class="status-message error">
+      Error.
+      <button type="button" class="retry-btn" (click)="tags.reload()">Tentar novamente</button>
+    </div>
+  } @else {
+    <div class="select-wrapper">
+      <select 
+        id="cat-tag-select" 
+        class="cat-tags-select"
+        [value]="selectedTag()"
+        (change)="onTagChange($event)"
+      >
+        <option value="" selected>Select a tag...</option>
+        @for (tag of tags.value(); track tag) {
+          <option [value]="tag">{{ tag }}</option>
+        }
+      </select>
+    </div>
+  }
+</div>

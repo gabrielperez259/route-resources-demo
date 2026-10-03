@@ -1,0 +1,18 @@
+<section class="card-form">
+  <form class="search-form" (ngSubmit)="search()">
+    <label for="message">Your message: </label>
+
+    <div class="input-group">
+      <input
+        id="message"
+        type="text"
+        [(ngModel)]="text"
+        name="text"
+        placeholder="Type something..."
+        maxlength="100"
+      />
+
+      <button type="submit" [disabled]="!text().trim()">Generate</button>
+    </div>
+  </form>
+</section>
